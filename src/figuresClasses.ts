@@ -8,9 +8,10 @@ export interface Figure {
 }
 
 export class Triangle implements Figure {
-  shape: 'triangle' = 'triangle';
+  shape: Figure['shape'] = 'triangle';
 
   constructor(
+    // public shape: Figure['shape'] = 'triangle',
     public color: Color,
     public a: number,
     public b: number,
@@ -33,7 +34,8 @@ export class Triangle implements Figure {
 }
 
 export class Circle implements Figure {
-  shape: 'circle' = 'circle';
+  // shape: 'circle' = 'circle';
+  shape: Figure['shape'] = 'circle';
 
   constructor(
     public color: Color,
@@ -53,7 +55,8 @@ export class Circle implements Figure {
 }
 
 export class Rectangle implements Figure {
-  shape: 'rectangle' = 'rectangle';
+  // shape: 'rectangle' = 'rectangle';
+  shape: Figure['shape'] = 'rectangle';
 
   constructor(
     public color: Color,
@@ -73,5 +76,6 @@ export class Rectangle implements Figure {
 }
 
 export function getInfo(figure: Figure): string {
-  return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
+  // eslint-disable-next-line @typescript-eslint/dot-notation
+  return `A ${figure.color} ${figure['shape']} - ${figure.getArea()}`;
 }
