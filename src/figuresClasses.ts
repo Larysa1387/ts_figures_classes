@@ -11,24 +11,16 @@ export class Triangle implements Figure {
   shape: 'triangle' = 'triangle';
 
   constructor(
-    // public shape: Shape,
     public color: Color,
     public a: number,
     public b: number,
     public c: number,
   ) {
-    // console.log(this.shape, this.color, this.a, this.b, this.c);
-
     if (a + b <= c || a + c <= b || b + c <= a) {
       throw new Error(
         "Triangle's sides do not satisfy the triangle inequality theorem",
       );
     }
-
-    this.color = color;
-    this.a = a;
-    this.b = b;
-    this.c = c;
   }
 
   getArea(): number {
@@ -44,16 +36,12 @@ export class Circle implements Figure {
   shape: 'circle' = 'circle';
 
   constructor(
-    // public shape: Shape,
     public color: Color,
     public radius: number,
   ) {
     if (radius <= 0) {
       throw new Error("Circle's radius must be greater than 0");
     }
-    // this.shape = shape;
-    this.color = color;
-    this.radius = radius;
   }
 
   getArea(): number {
@@ -72,10 +60,6 @@ export class Rectangle implements Figure {
     public width: number,
     public height: number,
   ) {
-    this.color = color;
-    this.width = width;
-    this.height = height;
-
     if (width <= 0 || height <= 0) {
       throw new Error("Rectangle's width and height must be greater than 0");
     }
