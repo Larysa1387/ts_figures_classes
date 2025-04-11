@@ -3,15 +3,16 @@ type Color = 'red' | 'green' | 'blue';
 
 export interface Figure {
   shape: 'triangle' | 'circle' | 'rectangle';
+  // shape: Shape;
   color: Color;
   getArea(): number;
 }
 
 export class Triangle implements Figure {
   shape: Figure['shape'] = 'triangle';
+  // shape: Shape = 'triangle';
 
   constructor(
-    // public shape: Figure['shape'] = 'triangle',
     public color: Color,
     public a: number,
     public b: number,
@@ -34,7 +35,7 @@ export class Triangle implements Figure {
 }
 
 export class Circle implements Figure {
-  // shape: 'circle' = 'circle';
+  // shape: Shape = 'circle';
   shape: Figure['shape'] = 'circle';
 
   constructor(
@@ -55,7 +56,7 @@ export class Circle implements Figure {
 }
 
 export class Rectangle implements Figure {
-  // shape: 'rectangle' = 'rectangle';
+  // shape: Shape = 'rectangle';
   shape: Figure['shape'] = 'rectangle';
 
   constructor(
@@ -76,6 +77,7 @@ export class Rectangle implements Figure {
 }
 
 export function getInfo(figure: Figure): string {
+  // ${figure['shape']}
   // eslint-disable-next-line @typescript-eslint/dot-notation
-  return `A ${figure.color} ${figure['shape']} - ${figure.getArea()}`;
+  return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
 }
